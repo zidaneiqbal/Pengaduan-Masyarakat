@@ -1,16 +1,34 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <router-view name="header" />
     <router-view/>
+    <router-view name="footer" />
   </div>
 </template>
 
+<script>
+import Footer from './views/layouts/Footer'
+import NavbarPetugas from './views/layouts/NavbarPetugas'
+import NavbarMasyarakat from './views/layouts/NavbarMasyarakat'
+
+export default {
+  name: 'App',
+  components: {
+    NavbarPetugas,
+    NavbarMasyarakat,
+    Footer
+  },
+  data : function(){
+    return {
+      status_login: ''
+    }
+  }
+}
+</script>
+
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Fantasy;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
